@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LEG Grammar Unit 1-3</title>
+<link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#20314f;--muted:#6b7a99;--bg:#f4faff;--card:#fff;--line:#e3eef9;--A:#2f9bff;--As:#e6f3ff;--B:#1fc08a;--Bs:#dff8ee;--C:#ff9a3d;--Cs:#fff0dd;--D:#8b6cff;--Ds:#efe9ff;--yel:#ffd84a;--ok:#1fc08a;--okS:#dcf8ec;--bad:#ff5d5d;--badS:#ffe6e6;--sh:0 10px 30px rgba(32,49,79,.08);--g:var(--A);--gs:var(--As)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--ink:#e8eefc;--muted:#9fb0d0;--bg:#121a2b;--card:#1b2640;--line:#2b3957;--As:#1d3556;--Bs:#17382f;--Cs:#40301a;--Ds:#2c2750;--okS:#17382f;--badS:#472126}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);line-height:1.75;background:var(--bg);font-family:"Huninn","Yuanti TC","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.N,.t-N{--g:var(--A);--gs:var(--As)}.R,.t-R{--g:var(--B);--gs:var(--Bs)}.A,.t-A{--g:var(--C);--gs:var(--Cs)}.W,.t-W{--g:var(--D);--gs:var(--Ds)}
+.wrap{max-width:960px;margin:0 auto;padding:16px 14px 70px}
+.hero{border-radius:28px;padding:20px 24px;background:linear-gradient(135deg,#d9efff,#e8fff5 60%,#fff4e0);color:#20314f;box-shadow:var(--sh);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.hero h1{margin:0;font-size:clamp(24px,5vw,34px)}.hero h1 em{font-style:normal;background:linear-gradient(transparent 60%,var(--yel) 60%)}
+.hero p{margin:2px 0 0;font-size:14.5px;color:#4d5b78}
+.hr{display:flex;flex-direction:column;gap:6px;min-width:230px;align-items:flex-end}
+.pr{display:flex;gap:6px}.pb{border:none;border-radius:999px;padding:7px 15px;background:#fff;color:#20314f;cursor:pointer;font-size:14px;box-shadow:0 3px 8px rgba(32,49,79,.15)}
+.prog{height:12px;width:100%;border-radius:99px;background:rgba(255,255,255,.85);overflow:hidden}.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--A),var(--B),var(--C));transition:width .4s}
+#pt{font-size:13px;font-weight:700;color:#4d5b78}
+.sticky{padding:10px 0 4px}@media(min-width:900px){.sticky{position:sticky;top:0;z-index:30;background:var(--bg)}}
+.nav,.sub{display:flex;flex-wrap:wrap;gap:8px;padding:3px 2px 6px}.sub{display:none}.sub.show{display:flex}
+.tab,.bb{border:none;background:var(--card);color:var(--ink);border-radius:999px;padding:7px 17px;font-size:15px;cursor:pointer;box-shadow:0 3px 10px rgba(32,49,79,.1);font-family:inherit}
+.tab.on,.bb.on{background:var(--g);color:#fff}.bb{padding:4px 14px;font-size:14px;border:2px solid var(--gs)}.bb.done{border-color:#ffc98a}.bb.perfect{border-color:var(--yel)}.bb.perfect::after{content:" ★";color:#ffb400}
+#wb{display:inline-block;min-width:22px;margin-left:5px;padding:0 6px;border-radius:99px;background:var(--bad);color:#fff;font-size:12.5px}
+.page{display:none}.page.on{display:block;animation:f .25s}@keyframes f{from{opacity:0;transform:translateY(8px)}}
+.card{background:var(--card);border-radius:26px;box-shadow:var(--sh);padding:22px 24px;margin:16px 0;position:relative}
+.card::before{content:"";position:absolute;left:24px;top:0;width:60px;height:7px;border-radius:0 0 8px 8px;background:var(--g)}
+.card h2{margin:0 0 10px;font-size:21px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.card h3{margin:16px 0 6px;font-size:16.5px;color:var(--g)}
+.badge{min-width:42px;height:40px;padding:0 10px;border-radius:14px;font-weight:800;background:var(--g);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:15px}
+.ut{font-size:22px;margin:22px 0 0;padding:14px 20px;border-radius:20px;color:#fff;background:linear-gradient(120deg,var(--g),#6c7bff);box-shadow:var(--sh)}
+.en{font-weight:700;color:#1e63d6;background:linear-gradient(transparent 58%,#fff0a6 58%);padding:0 3px;border-radius:3px}
+.dk .en{color:#1e63d6}
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:15px;margin:10px 0;border-radius:14px;overflow:hidden;box-shadow:0 0 0 2px var(--gs)}
+th,td{padding:8px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}th{background:var(--gs)}tr:last-child td{border-bottom:none}td:last-child,th:last-child{border-right:none}
+.tw{overflow-x:auto}.tip{border-radius:16px;background:#fff8d9;color:#20314f;padding:10px 15px;margin:10px 0;font-size:15px}.tip.w{background:#ffe9e9}
+.no{color:var(--bad);font-weight:700}.must{background:#ff5d5d;color:#fff;border-radius:99px;padding:0 10px;font-size:12.5px}
+.ins{background:var(--gs);border-radius:14px;padding:8px 14px;margin:0 0 12px;font-size:14.5px}
+.q ol{list-style:none;counter-reset:q;margin:6px 0;padding:0}.q li.qi{counter-increment:q;position:relative;padding:12px 4px 12px 48px;border-bottom:2px dotted var(--line);font-size:17px;line-height:2}
+.q li.qi::before{content:counter(q);position:absolute;left:3px;top:13px;width:30px;height:30px;border-radius:50%;background:var(--gs);color:var(--g);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.q li.ex{padding:8px 4px 8px 12px;font-size:15.5px;color:var(--muted);list-style:none}.q h4{margin:14px 0 4px;color:var(--g);font-size:16px}
+select,input[type=text]{font:inherit;font-size:16px;border:2px solid #cfe3f7;border-radius:12px;padding:1px 9px;background:#fff;color:#20314f;margin:0 3px;max-width:100%;text-align:center}
+select:focus,input:focus{outline:none;border-color:var(--g);box-shadow:0 0 0 4px var(--gs)}select:disabled,input:disabled{opacity:1;color:#20314f}
+.ok{background:var(--okS)!important;border-color:var(--ok)!important}.bad{background:var(--badS)!important;border-color:var(--bad)!important}
+.xp{margin:6px 0 0;padding:8px 13px;border-radius:14px;font-size:14.5px;line-height:1.65;color:var(--ink)}.xp.okx{background:var(--okS)}.xp.badx{background:var(--badS)}.why{color:var(--muted)}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:16px}.btn{border:none;border-radius:999px;padding:9px 20px;font:inherit;font-size:15px;background:var(--g);color:#fff;cursor:pointer;box-shadow:0 5px 12px rgba(32,49,79,.15)}.btn:disabled{opacity:.45;cursor:default}.btn.gh{background:var(--card);color:var(--ink);box-shadow:0 0 0 2px var(--line)}.selfok{padding:2px 12px;font-size:13px;margin-top:4px}
+.res{font-weight:700;font-size:16.5px}.pn{display:flex;justify-content:space-between;margin-top:18px;padding-top:12px;border-top:2px dotted var(--line)}
+.rv{border-radius:22px;padding:14px 18px;margin:12px 0;background:var(--card);box-shadow:var(--sh)}.rvh{font-size:13px;color:var(--muted)}.empty{text-align:center;padding:34px;font-size:18px}
+@page{size:A4;margin:12mm}
+@media print{body{background:#fff;color:#000;font-size:12px}.sticky,.hr,.bar,.pn,.exs,#pg-W{display:none!important}.page{display:block!important}.card{box-shadow:none;break-inside:avoid-page;border:1px solid #ccc;margin:8px 0}.hero{box-shadow:none;border:1px solid #ccc}.ut{break-after:avoid}}
+@media(max-width:700px){.card{padding:16px}.hero{padding:16px}.hr{align-items:stretch;min-width:100%}}
+</style></head><body><div class="wrap">
+<header class="hero"><div><h1>📘 <em>LEG Grammar</em> Unit 1-3</h1><p>現在簡單式／進行式 ・ 冠詞與名詞 ・ some／any／much／many</p></div>
+<div class="hr"><div class="pr"><button class="pb" id="pA4">🖨 列印 A4</button><button class="pb" id="pPDF">📄 存成 PDF</button></div><div class="prog"><i id="pb"></i></div><span id="pt"></span></div></header>
+<div class="sticky"><nav class="nav" id="nav"></nav><div id="subs"></div></div>
+<main id="pages"></main></div>
+<script>
+const NOTES={
+n1:`<div class="ut">第一課　Present Simple ＆ Present Progressive</div>
+<div class="card"><h2><span class="badge">1-1</span>現在簡單式 Present Simple<span class="must">要考</span></h2>
+<h3>用法</h3><p>① <b>習慣、重複的動作</b>：<span class="en">I usually wake up at 8 o'clock.</span><br>② <b>現在的永久狀態</b>：<span class="en">He works in a bank.</span><br>③ <b>一般事實</b>：<span class="en">The moon goes round the Earth.</span></p>
+<p><b>時間詞：</b>always, usually, often, sometimes, rarely, never / every day(morning, week…) / once, twice, three times a week / on Fridays, in spring, in the afternoon</p>
+<div class="tw"><table><tr><th>肯定</th><th>否定（短式）</th><th>疑問 ＆ 簡答</th></tr><tr><td>I / We / You / They <b>read</b><br>He / She / It <b>reads</b></td><td>I / We / You / They <b>don't</b> read<br>He / She / It <b>doesn't</b> read</td><td><b>Do</b> I/we/you/they read? Yes, I do. / No, I don't.<br><b>Does</b> he/she/it read? Yes, he does. / No, he doesn't.</td></tr></table></div>
+<h3>第三人稱單數拼字</h3><p>字尾 ch / sh / s / x / o → 加 <b>-es</b>：<span class="en">watch→watches, fish→fishes, pass→passes, fix→fixes, go→goes</span><br>子音＋y → 去 y 加 <b>-ies</b>：<span class="en">study→studies</span>　<span class="no">但</span> 母音＋y 直接加 s：<span class="en">play→plays</span></p>
+<div class="tip">📌 <b>頻率副詞</b>（always, usually, often, sometimes, rarely, never）通常放在<b>一般動詞前</b>，但在 <b>be 動詞後</b>：<span class="en">He always goes to school by bus. / She is always late.</span><br>否定與疑問：<span class="en">He doesn't always go…　Does he always go…?</span></div></div>
+<div class="card"><h2><span class="badge">1-2</span>現在進行式 Present Progressive<span class="must">要考</span></h2>
+<h3>用法</h3><p>① <b>此刻正在發生</b>：<span class="en">Look! A boy is running across the street.</span><br>② <b>目前暫時的情況</b>（不一定此刻）：<span class="en">She's working in a supermarket these days.</span><br>③ <b>已計畫好的近未來</b>（通常會提到時間）：<span class="en">Peter is leaving for Paris next week.</span></p>
+<p><b>時間詞：</b>now, right now, at the moment, at present, these days, today, this week/year, tonight, tomorrow, on Wednesday, next week/year</p>
+<div class="tw"><table><tr><th>肯定</th><th>否定</th><th>疑問 ＆ 簡答</th></tr><tr><td>I <b>am</b> reading<br>He/She/It <b>is</b> reading<br>We/You/They <b>are</b> reading</td><td>I'm not reading<br>He/She/It <b>isn't</b> reading<br>We/You/They <b>aren't</b> reading</td><td>Am I reading? Yes, I am. / No, I'm not.<br>Is he reading? Yes, he is. / No, he isn't.<br>Are they reading? Yes, they are. / No, they aren't.</td></tr></table></div>
+<h3>-ing 拼字</h3><p>去不發音 e：<span class="en">come→coming</span>　重複字尾（單音節、短母音＋子音）：<span class="en">cut→cutting, begin→beginning</span>　ie→y：<span class="en">lie→lying</span>　英式 l 結尾重複：<span class="en">travel→travelling</span><br><span class="no">但</span> 雙母音或 y 結尾直接加 ing：<span class="en">agree→agreeing, eat→eating, visit→visiting, study→studying, sail→sailing</span></p>
+<div class="tip w">⚠️ <b>靜態動詞 stative verbs</b> 通常不用進行式：<br>感官 smell, taste, hear ／ 情緒 love, like, hate, want ／ 想法知識 know, think, understand ／ 狀態 cost, own, seem, appear<br><span class="en">I don't understand this exercise!</span>（✗ I'm not understanding）</div></div>
+<div class="card"><h2><span class="badge">1-3</span>課文 Percy the drummer 重點</h2><p>Percy <b>usually stays</b> at home in the morning（習慣→簡單式）；<b>This week</b> Percy <b>is staying</b> in Birmingham（暫時→進行式）；It's 8 o'clock now and he <b>is running</b>（此刻→進行式）。<br>判斷訣竅：看到 <b>every / usually / always</b> 用簡單式；看到 <b>now / at the moment / this week / tomorrow</b> 用進行式。</p></div>`,
+n2:`<div class="ut">第二課　Articles ＆ Nouns　冠詞與名詞</div>
+<div class="card"><h2><span class="badge">2-1</span>不定冠詞 a / an<span class="must">要考</span></h2><p>用在<b>單數可數名詞</b>前：<span class="en">a pen, an apple</span>（母音音標開頭用 an）</p><p>① 不特定的人事物：<span class="en">There's a man at the door.</span>　② 職業：<span class="en">She's a teacher.</span></p></div>
+<div class="card"><h2><span class="badge">2-2</span>定冠詞 the　用／不用</h2>
+<div class="tw"><table><tr><th>✅ 要用 the</th><th>例</th></tr>
+<tr><td>特定或唯一的事物</td><td class="en">The man at the door is my uncle. / The sun rises in the east.</td></tr>
+<tr><td>海、洋、河、沙漠</td><td class="en">the Mediterranean, the Atlantic, the Amazon, the Sahara</td></tr>
+<tr><td>群島、山脈、複數國名</td><td class="en">the Canary Islands, the Himalayas, the USA</td></tr>
+<tr><td>全家姓氏、全體國民</td><td class="en">the Smiths, the Greeks（但 Fiona is Italian.）</td></tr>
+<tr><td>樂器（搭配 play）</td><td class="en">He plays the piano.</td></tr>
+<tr><td>旅館、戲院、報紙</td><td class="en">the Hilton Hotel, the Rex Cinema, the Times</td></tr>
+<tr><td>方位、最高級</td><td class="en">in the east / the tallest boy</td></tr></table></div>
+<div class="tw"><table><tr><th>❌ 不用 the</th><th>例</th></tr>
+<tr><td>人名、城市、島、湖、單數國名、街、洲、國籍（個人）</td><td class="en">That's Maria. She comes from Spain.</td></tr>
+<tr><td>學科、運動</td><td class="en">History is interesting. We love football.</td></tr>
+<tr><td>泛指的不可數／複數名詞</td><td class="en">I like coffee. Cats like milk.</td></tr>
+<tr><td>breakfast / lunch / dinner</td><td class="en">We have lunch at 1:30.</td></tr>
+<tr><td>hospital, home, school, church, bed, work, prison（用於原本目的）</td><td class="en">The boys are at school. <span class="no">但</span> …visited their uncle at the hospital.</td></tr></table></div></div>
+<div class="card"><h2><span class="badge">2-3</span>名詞 Nouns<span class="must">要考</span></h2>
+<h3>可數名詞：單數加 a/an，複數加數字</h3>
+<div class="tw"><table><tr><th>規則</th><th>例</th></tr><tr><td>一般加 -s</td><td class="en">pen→pens</td></tr><tr><td>ch/sh/s/x/o 加 -es</td><td class="en">box→boxes, watch→watches, brush→brushes, tomato→tomatoes <span class="no">但</span> piano→pianos, radio→radios</td></tr><tr><td>子音＋y → ies</td><td class="en">baby→babies <span class="no">但</span> toy→toys</td></tr><tr><td>f/fe → ves</td><td class="en">knife→knives, leaf→leaves <span class="no">但</span> roof→roofs</td></tr><tr><td>不規則</td><td class="en">man→men, woman→women, child→children, foot→feet, tooth→teeth, goose→geese, mouse→mice, person→people; sheep, fish, deer 單複數同形</td></tr></table></div>
+<h3>不可數名詞：只有單數，不加 a/an 或數字</h3><p class="en">milk, water, butter, wood, glass, money, time</p><p>用<b>量詞</b>計算：<span class="en">a carton of milk, a loaf/slice of bread, a bottle of water, a piece of cheese, a bowl of cornflakes, a cup of tea, a packet of biscuits, a bar of chocolate, a kilo of sugar</span></p></div>`,
+n3:`<div class="ut">第三課　Some / Any / No / Every ＆ Quantity Words</div>
+<div class="card"><h2><span class="badge">3-1</span>Some / Any / No / Every<span class="must">要考</span></h2>
+<p>some, any, no 搭配<b>不可數名詞或複數可數名詞</b>；every 搭配<b>單數可數名詞</b>。</p>
+<div class="tw"><table><tr><th>字</th><th>用法</th><th>例</th></tr><tr><td>some</td><td>肯定句；邀請、客氣請求的疑問句</td><td class="en">There's some coffee. Would you like some milk? Can I have some water?</td></tr><tr><td>any</td><td>疑問句、否定句</td><td class="en">Are there any books? There aren't any books.</td></tr><tr><td>no</td><td>肯定句，但意思是否定（= not any）</td><td class="en">There's no milk. = There isn't any milk.</td></tr><tr><td>every</td><td>單數可數名詞</td><td class="en">Every student has got a bag.</td></tr></table></div>
+<h3>複合字（後面不接名詞，動詞用單數）</h3>
+<div class="tw"><table><tr><th></th><th>some</th><th>any</th><th>no</th><th>every</th></tr><tr><th>人</th><td>someone / somebody</td><td>anyone / anybody</td><td>no one / nobody</td><td>everyone / everybody</td></tr><tr><th>事物</th><td>something</td><td>anything</td><td>nothing</td><td>everything</td></tr><tr><th>地方</th><td>somewhere</td><td>anywhere</td><td>nowhere</td><td>everywhere</td></tr></table></div>
+<div class="tip w">⚠️ <b>no / nothing / nobody 本身已是否定</b>，不可再加 not 或雙重否定：✗ There aren't no people → ✓ There aren't <b>any</b> people / There are <b>no</b> people。<br>some/any 可當代名詞：<span class="en">Is there any juice? No, there isn't any.</span></div></div>
+<div class="card"><h2><span class="badge">3-2</span>Much / Many / A lot of / A little / A few<span class="must">要考</span></h2>
+<div class="tw"><table><tr><th>字</th><th>接什麼名詞</th><th>用在</th><th>例</th></tr><tr><td>much</td><td>不可數</td><td>疑問、否定</td><td class="en">There isn't much sugar.</td></tr><tr><td>many</td><td>複數可數</td><td>疑問、否定</td><td class="en">Are there many chairs?</td></tr><tr><td>a lot of / lots of</td><td>不可數＋複數可數</td><td>肯定</td><td class="en">There's a lot of sugar. There are a lot of chairs.</td></tr><tr><td>a little</td><td>不可數</td><td>肯定</td><td class="en">There's a little sugar.</td></tr><tr><td>a few</td><td>複數可數</td><td>肯定</td><td class="en">There are a few chairs.</td></tr></table></div>
+<p>這些字可當代名詞：<span class="en">How much money have you got? I haven't got much. / Are there many eggs? No, only a few. / …There are a lot.</span></p></div>
+<div class="card"><h2><span class="badge">3-3</span>How much? / How many?</h2><p><b>How much ＋ 不可數名詞</b>問量：<span class="en">How much milk is there?</span><br><b>How many ＋ 可數名詞</b>問數：<span class="en">How many books have we got?</span><br><b>How much is …?</b> 問價錢：<span class="en">How much is this shirt?</span></p></div>
+<div class="card"><h2><span class="badge">3-4</span>課文 Koala 重點</h2><p>A <b>lot of</b> people think…；It drinks <b>no</b> water（= doesn't drink any）；needs only <b>a little</b> water；<b>How many</b> hours does it sleep <b>every</b> day? 課文T/F：1 ✓ 2 ✓ 3 ✗ 4 ✓ 5 ✗ 6 ✗。</p></div>`};
+/* 題目：[[答案/別解]] 文字；[[^the]] 冠詞；[[a|*b|c]] 選擇；=開頭為範例；#開頭為小標；|||後為解析 */
+const P=[
+{id:'R-a',g:'R',t:'Part a　現在簡單式或進行式',ins:'用括號中的動詞，填現在簡單式或現在進行式。（第1題為範例）',it:[
+'=1　<b>Is Betty taking</b> French lessons this year?',
+'Frank [[often doesn\'t travel/does not often travel]] by train, but he [[is travelling/is traveling]] to Rome next week.|||often 是頻率副詞→簡單式否定 doesn\'t travel；next week 是已計畫的近未來→進行式。',
+'[[Are your grandparents visiting]] you tomorrow evening?|||tomorrow evening 是已計畫的近未來→進行式疑問句 Are ＋ 主詞 ＋ V-ing。',
+'[[Do you know]] Mrs Wilson?|||know 是靜態動詞，不用進行式 → Do you know…?',
+'How much [[does the jacket cost]]?|||cost 是靜態動詞，用簡單式；主詞 the jacket 是第三人稱 → does。',
+'The children [[aren\'t playing/are not playing]] computer games now.|||now → 現在進行式否定。',
+'The boys [[don\'t play/do not play]] tennis twice a week. They [[play]] three times a week.|||twice a week、three times a week 是習慣 → 簡單式；The boys / They 是複數，動詞原形。']},
+{id:'R-b',g:'R',t:'Part b　短文：簡單式或進行式',ins:'Juanita 的短文。（(1) lives 為範例）',it:[
+'Juanita lives in Madrid. She (2) [[works]] at a supermarket, but she (3) [[doesn\'t like/does not like]] it very much. She (4) [[wants]] to find a better job.|||現在的永久狀態 → 簡單式；like、want 是靜態動詞。',
+'Every morning she (5) [[goes]] to work at seven o\'clock. She (6) [[usually finishes]] at three but she (7) [[sometimes works]] until four or five.|||every morning、usually、sometimes → 習慣 → 簡單式，第三人稱加 -es / -s，頻率副詞在動詞前。',
+'It is Monday today and it\'s half past twelve. Juanita (8) [[isn\'t working/is not working]] at the moment. She (9) [[is having]] her lunch break. She (10) [[is sitting]] at a café with her friend Martha.|||at the moment → 現在進行式。（這裡 have 是「吃」，不是「擁有」，可用進行式。）',
+'They (11) [[are drinking]] soft drinks and they (12) [[are eating]] salad. Martha (13) [[is telling]] Juanita about her weekend. Martha (14) [[always does]] something exciting at the weekend.|||此刻的動作 → 進行式；always 表習慣 → 簡單式 always does。']},
+{id:'R-c',g:'R',t:'Part c　冠詞 a / an / the / –',ins:'選擇 a、an、the 或 –（不加冠詞）。（(1) – 為範例）',it:[
+'#對話 1',
+'John: I\'m taking (2) [[^the]] dog for (3) [[^a]] walk.|||特定的那隻狗 → the；take a walk 固定用法 → a。',
+'Mother: Take (4) [[^an]] umbrella with you.|||不特定、單數可數、母音開頭 → an。',
+'John: No, Ben has got (5) [[^a]] black umbrella and I\'m not taking (6) [[^the]] red umbrella.|||第一次提到 → a；特定那把（我的紅傘）→ the。',
+'#對話 2',
+'Andrew: I play (7) [[^the]] guitar and my favourite subject at (8) [[^–]] school is (9) [[^–]] music.|||play ＋ 樂器 → the；at school（目的）、學科 music 不加冠詞。',
+'Sheila: I play (10) [[^the]] guitar too. I\'ve got (11) [[^an]] old guitar.|||old 母音開頭 → an。',
+'#對話 3',
+'Mr Brown: Are (12) [[^the]] Smiths in (13) [[^–]] France?|||全家姓氏 → the Smiths；單數國名不加。',
+'Mrs Brown: Yes, they\'re in (14) [[^–]] Paris at the moment. (15) [[^–]] Kate called me yesterday.|||城市名、人名不加冠詞。',
+'They\'re staying at (16) [[^a]] hotel in (17) [[^the]] city centre. I think it\'s (18) [[^the]] Hilton. It\'s near (19) [[^the]] River Seine.|||不特定的旅館 a；the city centre 特定；旅館名 the Hilton；河流 the。',
+'Yesterday, they had (20) [[^–]] lunch at (21) [[^a]] small restaurant near (22) [[^the]] hotel. They love (23) [[^–]] French food.|||三餐不加；a small restaurant（不特定）；the hotel（前面提過）；泛指食物不加。',
+'Mr Brown: Are they going anywhere else? Mrs Brown: Yes. They\'re visiting (24) [[^the]] Netherlands.|||複數形的國名 → the Netherlands。']},
+{id:'R-d',g:'R',t:'Part d　圈出正確的字',ins:'馬戲團短文，選出正確的字。（people 為範例）',it:[
+'There are a lot of persons / <b>people</b> at the circus tonight. There are lots of [[family|*families]] with young [[*children|child]].|||lots of ＋ 複數名詞；child 的複數是 children。',
+'Look at their [[face|*faces]]. They\'re watching the clowns and they\'re smiling [[*happy|happily]].|||their 後面接複數；smile 後面用形容詞 happy 描述狀態。',
+'One clown has got red [[*hair|hairs]] and big [[foot|*feet]]!|||hair 不可數；foot 的複數是 feet。',
+'He\'s riding a [[*bicycle|bicycles]] and he\'s holding a [[*box|boxes]] of [[tomato|*tomatoes]].|||a 後面接單數；box of ＋ 複數的 tomatoes（tomato→tomatoes）。',
+'He wants to feed his [[monkey|*monkeys]] but they don\'t want to eat. Now the clown is giving them a [[*glass|glasses]] of [[*milk|milks]].|||they 指多隻猴子；a glass of ＋ 不可數 milk。',
+'Oh, no! They\'re [[*angry|angrily]] and they\'re throwing their [[glass|*glasses]] at the clown. Look! The clown is running away [[quick|*quickly]].|||are 後接形容詞；throw 的是複數 glasses；running away 修飾動詞 → 副詞 quickly。']},
+{id:'R-e',g:'R',t:'Part e　代名詞選擇',ins:'選出正確的人稱代名詞／所有格。（第1題 my 為範例）',it:[
+'=1　Do you want to come to <b>my</b> party?',
+'Ask Paul about that T-shirt. I think it\'s [[him|*his|he]].|||it\'s ＋ 所有格代名詞 his（他的）。',
+'The dogs were hungry, so I gave [[their|theirs|*them]] some biscuits.|||give 的受詞 → them。',
+'[[*Our|Ours|Us]] hotel room was nice and clean.|||後面接名詞 → 所有格形容詞 Our。',
+'Somebody please help [[them|ours|*us]]! We can\'t swim!|||help 的受詞 → us。',
+'That\'s Steve\'s football. [[My|Me|*Mine]] is at home.|||當主詞、取代 my football → 所有格代名詞 Mine。',
+'Kathy doesn\'t know about the test tomorrow. We must tell [[*her|hers|him]].|||tell 的受詞，Kathy 是女生 → her。',
+'How often do you clean [[you|*your|yours]] bedroom?|||後面接名詞 → your。',
+'Look at that painting. Do you like [[him|*it|its]]?|||like 的受詞，指物 → it。',
+'That\'s not the Jones\' car. [[*Theirs|Their|Them]] is in the garage.|||當主詞、取代 their car → Theirs。']},
+{id:'R-f',g:'R',t:'Part f　much / many / a lot of / a few / a little / how much / how many',ins:'填入 much、many、a lot of、a few、a little、how much、how many。（(1) many 為範例）',it:[
+'Sarah: Do we need (1) <b>many</b> things from the supermarket? Jessica: We\'ve got some sugar, but not very (2) [[much]].|||sugar 不可數、否定 → much。',
+'Sarah: OK, let\'s buy (3) [[a little]] more sugar. Have we got any oranges? Jessica: Yes, we\'ve got (4) [[a lot of]] oranges but there are only (5) [[a few]] apples.|||(3) 不可數肯定→a little；(4) 肯定＋複數→a lot of；(5) 複數肯定→a few。',
+'Sarah: (6) [[How many]] apples do we need? Jessica: We don\'t need (7) [[many]], only two.|||apples 可數；否定 → many。',
+'Sarah: Have we got any milk? Jessica: There\'s only (8) [[a little]] in the fridge. Sarah: (9) [[How much]] milk do we need? Jessica: We need (10) [[a lot of]] milk. Buy two cartons.|||milk 不可數：a little / How much / a lot of。',
+'Jessica: There are (11) [[a lot of]] eggs in the fridge. Don\'t get any eggs because we haven\'t got (12) [[much]] money.|||(11) 肯定→a lot of；(12) money 不可數否定→much。']},
+{id:'R-g',g:'R',t:'Part g　找出並改正錯誤',ins:'每句有一個錯字，寫出正確的字。（第1題 no→any 為範例）',it:[
+'=1　Have we got <s>no</s> <b>any</b> tea?',
+'There aren\'t <u>no</u> people at the cinema. → [[any]]|||否定句已有 aren\'t，要用 any。',
+'There is <u>anybody</u> at home. → [[somebody/someone]]|||肯定句用 some- 複合字。',
+'Can I have <u>any</u> coffee? → [[some]]|||請求、客氣詢問用 some。',
+'I can\'t find George <u>somewhere</u>. → [[anywhere]]|||否定句用 any- 複合字。',
+'Do you know <u>nothing</u> about dolphins? → [[anything]]|||疑問句用 anything，不用 nothing。',
+'<u>Everyone</u> student has got a bag. → [[Every]]|||everyone 後不接名詞；Every ＋ 單數名詞。',
+'There is <u>nothing</u> water in the fridge. → [[no]]|||後面有名詞 water → no；nothing 不接名詞。',
+'Ann come here, <u>something</u> wants to talk to you. → [[someone/somebody]]|||會說話的是「人」→ someone。',
+'OK class, is <u>someone</u> here? Great, let\'s go! → [[anyone/anybody]]|||疑問句用 anyone。']},
+{id:'R-h',g:'R',t:'Part h　形容詞／副詞的比較',ins:'用括號中字的正確形式完成句子。（第1題 newer 為範例）',it:[
+'My computer is <b>newer</b> than Ben\'s, but Peter\'s computer is the [[newest]] of all. (new)|||the ＋ 最高級 → the newest。',
+'Diane drives [[more carefully]] than Alice, but Anna drives the [[most carefully]] of the three. (carefully)|||多音節副詞：more / most ＋ 副詞。',
+'Chris wakes up as [[early]] as Jane, but Nicky wakes up [[earlier]] than them. (early)|||as…as 中間用原級；than 前用比較級 earlier（y→ier）。',
+'I think tennis is as [[boring]] as basketball, but football is the [[most boring]] of the three. (boring)|||boring 為多音節 → more / most boring。',
+'Exercise A was [[more difficult]] than exercise B, but this exercise was the [[most difficult]] of all. (difficult)|||difficult 為多音節 → more / most difficult。']},
+{id:'A-1',g:'A',t:'第一課 Activities（Unit 1）',ins:'依序完成 a–e。寫句子的題目請寫完整句子，若你的寫法也正確可按「我的寫法也對」。',it:[
+'#a　提問與回答（Present Simple）',
+'=1　Does Sandra speak German? No, she doesn\'t. She speaks English and French.',
+'Frogs live near lakes?　Q: [[Do frogs live near lakes]]?　A: [[Yes they do]].|||複數主詞用 Do；簡答 Yes, they do.',
+'Jennifer / go / work / car? → No / train　Q: [[Does Jennifer go to work by car]]?　A: [[No she doesn\'t. She goes to work by train]].|||第三人稱單數用 Does；否定後原形，肯定句動詞加 -es。',
+'Zebras live in Africa?　Q: [[Do zebras live in Africa]]?　A: [[Yes they do]].|||複數主詞用 Do。',
+'Lions eat leaves? → No / meat　Q: [[Do lions eat leaves]]?　A: [[No they don\'t. They eat meat]].|||lions 是複數 → Do / don\'t。',
+'Mr Andrews teach maths? → No / geography　Q: [[Does Mr Andrews teach maths]]?　A: [[No he doesn\'t. He teaches geography]].|||teach → teaches（ch 結尾加 -es）。',
+'#b　看圖提問（Present Progressive）：只核對問句，簡答請依圖片自行對照',
+'Debbie / smile?　Q: [[Is Debbie smiling]]?|||Is ＋ 主詞 ＋ V-ing（smile 去 e 加 ing）。簡答依圖片：Yes, she is. / No, she isn\'t.',
+'Debbie / carry / umbrella?　Q: [[Is Debbie carrying an umbrella]]?|||umbrella 母音開頭 → an。圖中她拿的是書／資料夾，可答 No, she isn\'t. She\'s carrying books.',
+'Julie and Peter / stand?　Q: [[Are Julie and Peter standing]]?|||主詞複數 → Are。圖中他們坐／躺在樹下，可答 No, they aren\'t. They\'re sitting.',
+'Julie and Peter / listen / music?　Q: [[Are Julie and Peter listening to music]]?|||listen to ＋ 音樂。圖中他們在讀書，可答 No, they aren\'t. They\'re reading.',
+'Julie / wear / trousers?　Q: [[Is Julie wearing trousers]]?|||wear → wearing，單數主詞 Is。',
+'They / sit / at table?　Q: [[Are they sitting at the table/Are they sitting at a table]]?|||sit 重複字尾 → sitting。',
+'They / watch / TV?　Q: [[Are they watching TV]]?|||圖中他們在吃飯，可答 No, they aren\'t. They\'re having dinner.',
+'They / drink / milk?　Q: [[Are they drinking milk]]?|||milk 不可數，不加 a。',
+'#c　簡單式或進行式（第1題範例：Do … always play）',
+'Daniel [[is flying]] to Rome tomorrow morning. (fly)|||tomorrow → 已計畫的近未來。',
+'Wendy is at home. She [[is watching]] TV. (watch)|||此刻動作。',
+'[[Does]] Sheila [[know]] Mrs Jones? (know)|||know 為靜態動詞。',
+'John and Mary [[are learning]] Italian this year. (learn)|||this year 暫時的情況。',
+'[[Does]] Angie [[often cook]] chicken for dinner? (often / cook)|||often 在主詞與動詞間。',
+'[[Are]] we [[going]] to the cinema this Saturday? (go)|||已計畫的近未來。',
+'I [[don\'t understand/do not understand]] this exercise! (not understand)|||understand 是靜態動詞。',
+'Jenny [[walks]] to school every day. She [[never takes]] the bus. (walk / never take)|||every day → 習慣；never 在動詞前。',
+'Ann and Jane [[don\'t want/do not want]] to watch the football match because they [[don\'t like/do not like]] football.|||want、like 為靜態動詞，用簡單式否定。',
+'#d　Sunday morning：usually vs now（依圖意）',
+'=1　Mr Smith usually writes letters on Sunday morning but now he\'s taking pictures.',
+'Mrs Smith usually [[listens]] to music but now she\'s [[making]] a cake.|||usually → 簡單式（第三人稱 -s）；now → 進行式（make 去 e 加 ing）。',
+'Tony usually [[plays]] computer games but now he\'s [[flying]] a kite.|||依圖：玩電腦遊戲／放風箏。',
+'Melissa usually [[studies]] but now she\'s [[talking]] on the phone.|||study → studies（子音＋y）。',
+'The cats usually [[sleep]] but now they\'re [[climbing]] the tree.|||The cats 複數 → sleep（無 s）。',
+'#e　填入簡單式或進行式（動詞框）',
+'Every year Helen (1) has a party. Her mother (2) [[cooks]] a lot of food and (3) [[makes]] a big cake. Helen (4) [[invites]] all her friends. They (5) [[dance]], (6) [[play]] games and (7) [[have]] lots of fun. This year Helen (8) [[is having]] the party next Saturday afternoon.|||前面是每年的習慣 → 簡單式；This year…next Saturday 已安排 → 進行式。',
+'Mr Foster often (9) [[travels]] abroad on business. Tomorrow he (10) [[is flying]] to Germany. He (11) [[is staying]] there for three days and he (12) [[is meeting]] some German businessmen. He (13) [[is returning]] to London on Thursday evening.|||often → 簡單式；tomorrow、Thursday evening → 進行式表計畫。',
+'Emma (14) [[goes]] to work by bus every morning. Today she (15) [[is taking]] a taxi because she (16) [[doesn\'t want/does not want]] to be late. However, she (17) [[doesn\'t like/does not like]] taxis because she (18) [[thinks]] they are expensive.|||every morning → 簡單式；Today → 進行式；want、like、think 為靜態動詞。']},
+{id:'A-2',g:'A',t:'第二課 Activities（Unit 2）',ins:'依序完成 a–f。（e 題請依圖片填容器量詞，不用寫數字）',it:[
+'#a　a / an / the / –',
+'=1　<b>The</b> Guardian is <b>a</b> newspaper.',
+'[[^–]] my grandfather is [[^an]] old man.|||my 前面不加冠詞；old 母音開頭 → an。',
+'[[^a]] duck is [[^a]] bird.|||單數可數、不特定 → a。',
+'[[^–]] pink is [[^a]] beautiful colour.|||顏色 pink 泛指不加；a beautiful colour。',
+'[[^the]] Smiths are staying at [[^the]] Carlton Hotel.|||全家姓氏、旅館名 → the。',
+'[[^the]] Earth is [[^a]] planet.|||地球唯一 → the Earth；a planet。',
+'Mary Poppins is on at [[^the]] Odeon Cinema.|||戲院名 → the。',
+'Ann is in [[^–]] bed because she\'s ill.|||bed 用於原本目的 → 不加 the。',
+'#b　美國簡介：the 或 –',
+'(1) <b>The</b> USA is a big country in (2) [[^–]] North America. (3) [[^–]] Canada is to (4) [[^the]] north of this country and (5) [[^–]] Mexico is to (6) [[^the]] south.|||洲名、單數國名不加；方位 the north / the south。',
+'To (7) [[^the]] east (8) [[^the]] country lies (9) [[^the]] Atlantic Ocean and to (10) [[^the]] west (11) [[^the]] Pacific Ocean.|||方位、洋名都要 the。',
+'There are two big mountain ranges, (12) [[^the]] Appalachian Mountains in (13) [[^the]] east and (14) [[^the]] Rocky Mountains in (15) [[^the]] west.|||山脈 the；方位 the。',
+'There are about (16) [[^–]] twenty big rivers in (17) [[^the]] country. (18) [[^the]] longest river is (19) [[^the]] Mississippi-Missouri.|||about twenty 前不加；最高級、河名要 the。',
+'In (20) [[^the]] north there are five big lakes. (21) [[^the]] largest lake is (22) [[^–]] Lake Superior.|||湖名不加；最高級 the。',
+'There are also two deserts in (23) [[^the]] USA, (24) [[^the]] Colorado Desert and (25) [[^the]] Mojave Desert.|||複數國名、沙漠 → the。',
+'#c　Donna 的購物清單（依圖寫複數或量詞）',
+'=1　Two <b>watches</b> for the twins.',
+'[[bags]] for Ed and Carl.|||依圖：兩個包包（bag→bags）。',
+'Some [[glasses]] for aunt Emma.|||依圖：玻璃杯 glass → glasses。',
+'Two [[boxes]] of biscuits for Pam.|||box → boxes。',
+'Kitchen [[knives]] for mum.|||knife → knives。',
+'Two hair [[brushes]] for Tina.|||brush → brushes。',
+'[[umbrellas]] for Danny and Peter.|||umbrella → umbrellas。',
+'[[toys]] for the baby.|||toy → toys（母音＋y）。',
+'English [[books/dictionaries]] for Claire and Ingrid.|||book → books。',
+'Two [[pens]] for dad.|||依圖：兩枝筆。',
+'#d　短文冠詞（a / an / the / –）',
+'(1) [[^–]] Jeanette is (2) [[^–]] French. She lives in (3) [[^a]] village in (4) [[^–]] France. (5) [[^the]] village is near (6) [[^–]] Paris, so she often goes there.|||人名、國籍、國名、城市不加；第一次提到 a village，再提 the village。',
+'(7) [[^–]] Jeanette lives in (8) [[^a]] yellow house in (9) [[^the]] centre of (10) [[^the]] village. (11) [[^the]] house has got (12) [[^a]] living room, (13) [[^–]] two bedrooms, (14) [[^a]] kitchen and (15) [[^a]] bathroom.|||two bedrooms 複數不加；the centre of the village（特定）。',
+'There is also (16) [[^a]] big studio. (17) [[^–]] Jeanette works there. She\'s (18) [[^an]] artist. She paints (19) [[^–]] pictures.|||artist 母音開頭 → an；泛指複數不加。',
+'In front of (20) [[^the]] house there is (21) [[^a]] big garden. There are (22) [[^–]] flowers, (23) [[^an]] apple tree, (24) [[^a]] vegetable garden and (25) [[^a]] dog-house in (26) [[^the]] garden.|||第一次提到 a，再提 the garden。',
+'(27) [[^–]] Jeanette\'s dog, (28) [[^–]] Rex, sleeps in (29) [[^the]] dog-house.|||人名／狗名不加；the dog-house（前文提過）。',
+'(30) [[^–]] Dennis is my best friend. He\'s (31) [[^a]] student. He lives on (32) [[^–]] Prince Street. Every day he wakes up, has (33) [[^–]] breakfast and goes to (34) [[^–]] school.|||街名、三餐、school（目的）不加。',
+'He wants to become (35) [[^a]] teacher. After school he has (36) [[^a]] guitar lesson. He likes (37) [[^–]] music very much and he plays (38) [[^the]] guitar very well. He has got (39) [[^an]] old guitar. It was (40) [[^a]] present from his grandfather.|||職業 a；play ＋ 樂器 the；old → an。',
+'#e　桌上有什麼：填容器／量詞',
+'=1　Two <b>bowls of</b> cornflakes.',
+'A [[piece/slice/wedge]] of cheese.|||依圖：一塊起司。',
+'Some [[bottles]] of water.|||依圖：幾瓶水。',
+'A [[loaf]] of bread.|||麵包用 loaf。',
+'Two [[slices/pieces]] of cake.|||蛋糕用 slice / piece。',
+'A [[carton]] of milk.|||牛奶盒 carton。',
+'A [[packet/box/bowl/plate]] of biscuits.|||依圖填容器皆可。',
+'A [[kilo/bag/packet]] of sugar.|||圖中 1kg sugar → a kilo of sugar。',
+'Two [[bars]] of chocolate.|||巧克力 bar。',
+'A [[bowl]] of sweets.|||依圖：一碗糖果。',
+'Two [[cups]] of tea.|||依圖：兩杯茶 cup。',
+'A [[glass]] of orange juice.|||依圖：玻璃杯 glass。',
+'#f　Can you remember? My town（圈出正確的字）',
+'I [[*live|lives]] in [[the|*–]] Clinwood. [[The|*–]] Clinwood is [[*a|the]] small town in [[–|*the]] USA.|||I 後用 live；城市不加；單數不特定 a；USA 為複數形國名 the。',
+'My town has got [[*a|an]] hospital, two [[church|*churches]], two [[school|*schools]], [[the|*a]] nice park, [[a|*an]] old train station and [[*a|–]] cinema.|||two 後接複數；old 母音開頭 an。',
+'I [[am liking|*like]] my town because it is nice and quiet. On weekdays I [[am going|*go]] to [[*–|the]] school.|||like 是靜態動詞；weekdays 習慣 → 簡單式；go to school 不加 the。',
+'At weekends I [[*stay|am staying]] at home or I [[am going|*go]] out with my friends. This is [[*a|an]] picture of [[*the|–]] park.|||At weekends 習慣；a picture（不特定）；the park（特定的那座公園）。',
+'I [[ride|*am riding]] my horse and my friend Lisa [[looks|*is looking]] at me.|||此刻動作 → 進行式。']},
+{id:'A-3',g:'A',t:'第三課 Activities（Unit 3）',ins:'依序完成 a–e。（c 題為看圖題，答案為參考，可自評）',it:[
+'#a　選 some / any / no / every',
+'=1　There aren\'t <b>any</b> books in my bag.',
+'Would you like [[*some|every|no]] milk in your coffee?|||邀請 → some。',
+'Mrs Smith helps [[some|any|*every]] student in the class.|||student 單數 → every。',
+'James is very good at his job and has [[any|*no|every]] problems at work.|||肯定句、否定意思 → no。',
+'Does Kate speak [[*any|no|some]] foreign languages?|||疑問句 → any。',
+'I\'m going to the cinema with [[no|every|*some]] friends. Are you coming?|||邀請的語氣 → some。',
+'[[*Every|Some|Everybody]] child likes cartoons.|||後接名詞 child → Every。',
+'There is [[any|every|*no]] water in the fridge.|||肯定句、否定意思 → no。',
+'The twins didn\'t drink [[some|*any|every]] tea because they didn\'t like it.|||否定句 → any。',
+'There are [[every|any|*some]] CDs on the desk.|||肯定句 → some。',
+'#b　複合字填空',
+'=1　Mary: No, I can\'t find her <b>anywhere</b>.',
+'Alex: Well, she\'s [[somewhere]] in the house. Look again! Mary: I looked [[everywhere]] and the cat is [[nowhere]].|||肯定 somewhere；everywhere；nowhere 本身已否定。',
+'Shop assistant: Would you like [[anything]] else? Becky: No, I don\'t need [[anything]] else. I think I\'ve got [[everything]]. Oh, wait! Yes, I need [[something]] else, too.|||疑問／否定 anything；肯定 something；everything 全部。',
+'Teacher: OK [[everyone/everybody]], quiet please. Now, can [[anyone/anybody]] answer the question? Kevin: Miss, I think there is [[someone/somebody]] outside. Teacher: No, there is [[no one/nobody]] there.|||依序：everyone、anyone、someone、no one。',
+'#c　Tina\'s room（依圖，答案為參考）',
+'=1　She <b>hasn\'t got many</b> CDs.',
+'She [[hasn\'t got much/has got a little]] money.|||money 不可數；圖中錢不多。',
+'She [[has got a lot of/has got lots of]] books.|||圖中書櫃有許多書。',
+'She [[has got a lot of/has got lots of]] posters.|||牆上有多張海報。',
+'She [[has got a lot of/has got lots of]] homework.|||桌上作業單列了很多項。',
+'She [[hasn\'t got much/has got a little]] orange juice.|||瓶中約剩一點。',
+'She [[hasn\'t got many/has got a few]] bags.|||圖中只有一個包包。',
+'She [[has got a lot of/has got lots of]] photographs.|||牆上、桌上有很多相片。',
+'#d　how much / how many / a little / a few',
+'Anita: Yes, I\'ve got <b>a little</b> sugar and [[a few]] eggs. Michelle: Can you give me some? Anita: Of course. [[How much]] sugar do you want? … OK, and [[how many]] eggs do you need?|||eggs 可數 a few；sugar 不可數 How much；eggs 可數 how many。',
+'Mother: Yes, there are [[a few]] sandwiches and there is [[a little]] orange juice.|||sandwiches 可數 → a few；juice 不可數 → a little。',
+'Alicia: [[How much]] homework have you got today? Jane: Just [[a little]]. Alicia: Well, I\'ve only got [[a few]] maths problems.|||homework 不可數；problems 可數。',
+'#e　Can you remember? Mr and Mrs Simpson（圈出正確的字）',
+'(1) <b>–</b> Mr and Mrs Simpson are at (2) [[the|*a]] restaurant. There are only (3) [[*a few|a little]] people in (4) [[*the|a]] restaurant.|||第一次提到 a restaurant，再提 the restaurant；people 可數 → a few。',
+'(5) [[*The|–]] Simpsons are sitting at (6) [[–|*a]] table near (7) [[–|*the]] window. There is (8) [[*an|a]] orange vase with (9) [[a|*some]] flowers in it on (10) [[a|*the]] table.|||全家 the Simpsons；orange 母音開頭 an；flowers 複數 some；特定的桌子 the。',
+'There is (11) [[*a|the]] candle near (12) [[a|*the]] vase. At the moment (13) [[*The|–]] Simpsons aren\'t eating (14) [[no|*any]] food.|||第一次提到 a candle；vase 前面提過 the；否定句用 any。',
+'(15) [[The|*–]] Mr Simpson is drinking (16) [[a|*some]] coffee. (17) [[The|*–]] Mrs Simpson has got (18) [[*a|some]] glass of lemonade in front of her but she isn\'t drinking it.|||Mr / Mrs 前不加 the；coffee 不可數 some；a glass of。',
+'She wants (19) [[*some|much]] water but there isn\'t (20) [[*much|many]] in (21) [[a|*the]] bottle on their table.|||water 不可數：some（肯定）、much（否定）；特定的那瓶 the bottle。']}];
+
+(function(){const out=[];P.forEach(p=>{if(p.g!='A'){out.push(p);return;}const u=p.id.slice(2);let cur=null;p.it.forEach(x=>{if(x[0]=='#'){const m=x.slice(1),l=m[0];cur={id:'A'+u+'-'+l,g:'A',bd:'U'+u+'-'+l,nv:'第'+u+'課 '+l,t:'第'+u+'課 Activity '+l+'　'+m.slice(2),ins:p.ins.replace(/^依序完成[^。]*。/,''),it:[]};out.push(cur);}else cur.it.push(x);});});P.length=0;out.forEach(x=>P.push(x));})();
+const ART=['a','an','the','–'],$=(q,r=document)=>r.querySelector(q);
+const nz=s=>String(s).replace(/[’‘]/g,"'").toLowerCase().replace(/n't\b/g,' not').replace(/'m\b/g,' am').replace(/'re\b/g,' are').replace(/'s\b/g,' is').replace(/[.,!?]/g,'').replace(/[-‐]/g,'–').replace(/\s+/g,' ').trim();
+const IT={},S={};let W={},cur='n1';
+try{W=JSON.parse(localStorage.getItem('u13w')||'{}')||{}}catch(e){}
+const sv=()=>{try{localStorage.setItem('u13w',JSON.stringify(W))}catch(e){}};
+function conv(st){const bl=[];const h=st.replace(/\[\[(.*?)\]\]/g,(m,t)=>{let b;
+ if(t[0]=='^')b={o:ART,a:[t.slice(1)]};
+ else if(t.includes('|')){const o=t.split('|');b={o:o.map(x=>x.replace('*','')),a:[o.find(x=>x[0]=='*').slice(1)]};}
+ else b={a:t.split('/')};
+ bl.push(b);const i=bl.length-1;
+ return b.o?`<select data-b="${i}"><option value="">▾</option>${b.o.map(x=>`<option>${x}</option>`).join('')}</select>`:`<input type="text" data-b="${i}" size="${Math.min(40,Math.max(6,Math.round(Math.max(...b.a.map(x=>x.length))*.85)))}" autocomplete="off" autocapitalize="none" spellcheck="false">`;});return[h,bl];}
+P.forEach(p=>p.it.forEach((x,i)=>{if(x[0]=='#'||x[0]=='=')return;const [st,ex]=x.split('|||');const [h,bl]=conv(st);IT[p.id+'#'+i]={h,bl,ex:ex||'',p:p.id};}));
+const qs=p=>p.it.filter(x=>x[0]!='#'&&x[0]!='=').length;
+function li(u,k){const it=IT[u];return `<li class="qi" data-u="${u}"><div>${it.h}</div><div class="exs"></div></li>`;}
+function body(p){let h='<ol>';p.it.forEach((x,i)=>{if(x[0]=='#')h+=`</ol><h4>${x.slice(1)}</h4><ol style="counter-reset:none">`.replace('counter-reset:none','counter-reset:q'+'');else if(x[0]=='=')h+=`<li class="ex">例　${x.slice(1)}</li>`;else h+=li(p.id+'#'+i);});return h+'</ol>';}
+function card(p){const n=qs(p),ix=P.findIndex(x=>x.id==p.id);return `<div class="card q ${p.g}" id="c-${p.id}"><h2><span class="badge">${p.bd||p.id.replace('R-','Part ')}</span>${p.t}</h2><div class="ins">🎯 ${p.ins}</div>${body(p)}<div class="bar"><button class="btn" data-a="chk" data-p="${p.id}">✔ 核對 ${n} 題</button><button class="btn gh" data-a="rst" data-p="${p.id}">↺ 重做</button><span class="res" id="res-${p.id}"></span></div><div class="pn"><button class="btn gh" data-go="${ix>0?P[ix-1].id:'n3'}">← 上一頁</button><button class="btn gh" data-go="${ix<P.length-1?P[ix+1].id:'W'}">${ix<P.length-1?'下一頁 →':'看錯題本 →'}</button></div></div>`;}
+function chk(el,u){const it=IT[u];let all=true;
+ el.querySelectorAll('[data-b]').forEach(e=>{const b=it.bl[+e.dataset.b];const ok=e.value!==''&&b.a.some(x=>nz(x)==nz(e.value));e.classList.toggle('ok',ok);e.classList.toggle('bad',!ok);e.disabled=true;if(!ok)all=false;});
+ el.querySelector('.exs').innerHTML=`<div class="xp ${all?'okx':'badx'}">${all?'✅ 正確':'❌ 答案：'}<b>${all?'':it.bl.map(b=>b.a[0]).join(' ／ ')}</b>${it.ex?`<div class="why">📖 ${it.ex}</div>`:''}${!all&&it.bl.some(b=>!b.o)?`<button class="btn gh selfok" data-a="so" data-u="${u}">我的寫法也對 ✔</button>`:''}</div>`;
+ if(all)delete W[u];else W[u]=1;return all;}
+function res(p){const s=S[p.id];$('#res-'+p.id).textContent=`得分 ${s.sc} / ${s.t}　`+(s.sc==s.t?'🎉 全對！':s.sc>=s.t*.8?'👍 很棒，看看錯的解析':'💪 看解析後可按「重做」');}
+function tally(){let d=0;P.forEach(p=>{const b=$('#bb-'+p.id),s=S[p.id];if(b){b.classList.toggle('done',!!s);b.classList.toggle('perfect',!!s&&s.sc==s.t);}if(s)d++;});
+ $('#pb').style.width=d/P.length*100+'%';$('#pt').textContent=`完成 ${d} / ${P.length} 回`;const n=Object.keys(W).filter(k=>IT[k]).length;const w=$('#wb');w.textContent=n;w.style.display=n?'inline-block':'none';}
+function wrongPage(){const ks=Object.keys(W).filter(k=>IT[k]);const box=$('#pg-W');
+ if(!ks.length){box.innerHTML='<div class="card W"><div class="empty">🎉 目前沒有錯題！<br><small>做測驗後，答錯的題目會自動收進這裡。</small></div></div>';return;}
+ box.innerHTML=`<div class="card W"><h2>📕 錯題本：${ks.length} 題</h2><p class="ins">重新作答並按「檢查」，答對就會移出錯題本。</p><div class="bar"><button class="btn gh" data-a="clr">清空錯題本</button></div></div>`+ks.map(k=>{const p=P.find(x=>x.id==IT[k].p);return `<div class="rv ${p.g}"><div class="rvh">${p.t}</div><ol class="q" style="list-style:none;padding:0;margin:4px 0"><li class="qi" data-u="${k}" style="padding-left:0;font-size:17px;line-height:2;border:none"><div>${IT[k].h}</div><div class="exs"></div></li></ol><div class="bar"><button class="btn" data-a="rck" data-u="${k}">檢查</button><span class="res"></span></div></div>`}).join('');}
+const NAV=[['N','📒 文法重點',[['n1','第一課'],['n2','第二課'],['n3','第三課']]],['R','📝 複習 Unit 1–5',P.filter(p=>p.g=='R').map(p=>[p.id,p.id.replace('R-','Part ')])],['A','🎯 課後 Activities',P.filter(p=>p.g=='A').map(p=>[p.id,p.nv])],['W','📕 錯題本',[]]];
+const grpOf=id=>id=='W'?'W':id[0]=='n'?'N':P.find(p=>p.id==id).g;
+$('#nav').innerHTML=NAV.map(n=>`<button class="tab t-${n[0]}" data-t="${n[0]}">${n[1]}${n[0]=='W'?'<span id="wb">0</span>':''}</button>`).join('');
+$('#subs').innerHTML=NAV.filter(n=>n[2].length).map(n=>`<div class="sub ${n[0]}" data-g="${n[0]}">${n[2].map(x=>`<button class="bb" data-go="${x[0]}" id="bb-${x[0]}">${x[1]}</button>`).join('')}</div>`).join('');
+const pg=$('#pages');
+['n1','n2','n3'].forEach(id=>{const s=document.createElement('section');s.className='page N';s.id='pg-'+id;s.innerHTML=NOTES[id].replace(/class="card"/g,'class="card N"')+`<div class="pn"><button class="btn gh" data-go="${id=='n1'?'n1':'n'+(+id[1]-1)}">← 上一頁</button><button class="btn gh" data-go="${id=='n3'?'R-a':'n'+(+id[1]+1)}">下一頁 →</button></div>`;pg.appendChild(s);});
+P.forEach(p=>{const s=document.createElement('section');s.className='page '+p.g;s.id='pg-'+p.id;s.innerHTML=card(p);pg.appendChild(s);});
+const w=document.createElement('section');w.className='page W';w.id='pg-W';pg.appendChild(w);
+function go(id){cur=id;const g=grpOf(id);document.querySelectorAll('.page').forEach(x=>x.classList.toggle('on',x.id=='pg-'+id));
+ document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.t==g));
+ document.querySelectorAll('.sub').forEach(s=>s.classList.toggle('show',s.dataset.g==g));
+ document.querySelectorAll('.bb').forEach(b=>b.classList.toggle('on',b.dataset.go==id));
+ if(id=='W')wrongPage();window.scrollTo(0,0);}
+document.addEventListener('click',e=>{
+ const t=e.target.closest('[data-t]');if(t){const k=t.dataset.t;go(k=='W'?'W':NAV.find(n=>n[0]==k)[2][0][0]);return;}
+ const g=e.target.closest('[data-go]');if(g){go(g.dataset.go);return;}
+ const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a;
+ if(a=='chk'){const p=P.find(x=>x.id==b.dataset.p);let sc=0;document.querySelectorAll('#c-'+p.id+' li.qi').forEach(l=>{if(chk(l,l.dataset.u))sc++;});S[p.id]={sc,t:qs(p)};res(p);b.disabled=true;sv();tally();}
+ else if(a=='rst'){const p=P.find(x=>x.id==b.dataset.p);$('#pg-'+p.id).innerHTML=card(p);delete S[p.id];tally();}
+ else if(a=='so'){const u=b.dataset.u,x=b.closest('.xp');x.className='xp okx';x.innerHTML='✅ 自評正確';delete W[u];const p=IT[u].p;if(S[p]){S[p].sc++;res(P.find(y=>y.id==p));}sv();tally();}
+ else if(a=='rck'){const l=b.closest('.rv').querySelector('li');const ok=chk(l,b.dataset.u);b.parentElement.querySelector('.res').textContent=ok?'🎉 答對了！已移出錯題本':'❌ 再想想';if(ok){b.disabled=true;}sv();tally();}
+ else if(a=='clr'){if(confirm('確定要清空錯題本嗎？')){W={};sv();tally();wrongPage();}}});
+$('#pA4').onclick=()=>window.print();
+$('#pPDF').onclick=()=>{alert('請在列印視窗中，將「目的地」選為「另存為 PDF」，紙張選 A4。');window.print();};
+tally();go('n1');
+</script></body></html>
